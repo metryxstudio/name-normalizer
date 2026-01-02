@@ -1,5 +1,5 @@
 homepage: "https://github.com/metryxstudio/name-normalizer"
 documentation: "https://github.com/metryxstudio/name-normalizer#readme"
 versions:
-  - sha: # Add your commit SHA after pushing to GitHub
+  - sha: 93bb6a1fdb49173d9e601b7786adb3a533195503
     changeNotes: "Initial release"
