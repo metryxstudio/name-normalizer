@@ -15,7 +15,8 @@ ___INFO___
   "displayName": "Name Normalizer",
   "description": "Normalizes first and last names for server-side tracking by removing spaces, punctuation, and numbers while preserving UTF-8 characters.",
   "containerContexts": [
-    "SERVER"
+    "SERVER",
+    "WEB"
   ],
   "categories": ["UTILITY"],
   "brand": {
@@ -72,6 +73,50 @@ var normalizeName = function(data) {
 };
 
 return normalizeName(data);
+
+
+___SANDBOXED_JS_FOR_WEB_TEMPLATE___
+
+var makeString = require('makeString');
+
+var normalizeName = function(data) {
+  var rawName = data.rawName;
+
+  if (!rawName) {
+    return undefined;
+  }
+
+  var nameString = makeString(rawName).trim().toLowerCase();
+  
+  if (nameString.length === 0) {
+    return undefined;
+  }
+  
+  var normalizedName = '';
+  var charsToRemove = ' \'"-.,;:!?()[]{}/@#$%^&*+=_|\\<>~`0123456789';
+  
+  for (var i = 0; i < nameString.length; i++) {
+    var char = nameString.charAt(i);
+    
+    if (charsToRemove.indexOf(char) === -1) {
+      normalizedName = normalizedName + char;
+    }
+  }
+  
+  if (normalizedName.length === 0) {
+    return undefined;
+  }
+  
+  return normalizedName;
+};
+
+return normalizeName(data);
+
+
+
+___WEB_PERMISSIONS___
+
+[]
 
 
 ___SERVER_PERMISSIONS___

@@ -1,6 +1,6 @@
 # Name Normalizer
 
-A server-side Google Tag Manager variable template that normalizes first and last names for server-side tracking by removing spaces, punctuation, and numbers while preserving UTF-8 characters.
+A Google Tag Manager variable template for both web and server containers that normalizes first and last names for server-side tracking by removing spaces, punctuation, and numbers while preserving UTF-8 characters.
 
 ## Overview
 
@@ -8,7 +8,7 @@ This template prepares names for hashing and sending to advertising platforms li
 
 ## Installation
 
-1. In your server-side GTM container, go to **Templates** → **Variable Templates** → **Search Gallery**
+1. In your GTM container (web or server-side), go to **Templates** → **Variable Templates** → **Search Gallery**
 2. Search for "Name Normalizer"
 3. Click **Add to workspace**
 
@@ -57,6 +57,12 @@ The template preserves international characters including:
 1. Create two variables using this template (one for first name, one for last name)
 2. Set **Raw Name** to your data source (e.g., `{{Event Data - first_name}}`)
 3. Use the normalized output in your tracking tags or hash it for CAPI
+
+## Compatibility
+
+This template works in both:
+- **Web GTM** containers
+- **Server-side GTM** containers
 
 ## Author
 
